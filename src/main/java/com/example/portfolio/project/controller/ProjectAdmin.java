@@ -16,12 +16,12 @@ public class ProjectAdmin {
     @Autowired
     private ProjectService projectService;
 
-    @PostMapping(value = "/saveProject" , consumes = "application/json", produces = "application/json")
+    @PostMapping(value = "/saveProject")
     public ResponseEntity<Object> saveProject(@RequestBody(required = true) ProjectRequest request){
         return ResponseEntity.ok(projectService.saveProject(request));
     }
 
-    @GetMapping(value = "/getProject" ,consumes = "application/json" , produces = "application/json")
+    @GetMapping(value = "/getProject" )
     public ResponseEntity<Object> getProjects( @RequestParam(required = false) String name ){
         return ResponseEntity.ok(projectService.getProjects(name));
     }
